@@ -19,6 +19,9 @@
 ```ini
 # 在终端通过命令安装json-server包
 npm install -g json-server
+# git clone 并进入文件夹
+git clone https://github.com/2019-web/mini-edu-lab-server-code.git
+cd mini-edu-lab-server-code
 # 启动一个以db.josn文件的服务器，端口是5300
 json-server --watch --port 5300 db.json
 ```
