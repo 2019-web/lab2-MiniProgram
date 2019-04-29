@@ -18,7 +18,7 @@
 
 ```ini
 # 在终端通过命令安装json-server包
-npm install -g json-server
+sudo npm install -g json-server
 # git clone 并进入文件夹
 git clone https://github.com/2019-web/mini-edu-lab-server-code.git
 cd mini-edu-lab-server-code
