@@ -446,8 +446,7 @@ Page({
       // 滑动页面请求
       wx.pageScrollTo({
       // scrollTop	Number	是	滚动到页面的目标位置（单位px）
-      // “让滚动条滚动到正好显示某个节点的位置”，我没理解为什么+一个大的数值是可行的？
-      scrollTop: res[0].bottom+500000,
+      scrollTop: res[0].bottom+res[0].height,
       // duration: 300
     })
    })  
