@@ -364,13 +364,12 @@ Page({
 
 这个里面比较关键的就是 点击底部的“添加信息”按钮，然乎对话信息一条一条的显示出来，考虑到信息的增加界面自动滚动到底部。
 
-修改```chatbox.wxml```的代码如下 :
+在```pages/chatbox/chatbox.wxml```中，修改代码如下 :
 
 ```
 <!--pages/chatbox/chatbox.wxml-->
 <text>pages/chatbox/chatbox.wxml</text>
-<!-- padding-bottom:80px;限制区域大小，微信小程序中使用position:fixed遮挡正文内容解决 ​​​​
- -->
+<!-- padding-bottom:80px;限制文本内容区域距离底端大小，微信小程序中使用padding-bottom解决position:fixed遮挡正文内容的问题 -->
 <view id="container" style="padding-bottom:80px;">
 <view>
     <view wx:for="{{message}}" class='messageHeight'>
@@ -383,7 +382,7 @@ Page({
 </view>
 ```
 
-修改 ```chatbox.js``` 部分的代码如下 :
+在 ```pages/chatbox/chatbox.js```中， 修改代码如下 :
 
 ```
 // pages/chatbox/chatbox.js
@@ -521,7 +520,6 @@ Page({
 ```
 
 最终界面的演示效果
-
 
 ![](./assests/img/demo.gif)
 
