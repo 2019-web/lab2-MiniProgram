@@ -11,6 +11,7 @@
 
 如果自己没有注册过微信小程序的账号，可以用助教账号的```"appid": "wx21776ebfd5bca378"```来完成实验。
 
+关于微信开发者工具的使用，请参考微信小程序官方的文档 [概览](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
 
 ### 1.2 轻量级后端
 
@@ -292,9 +293,19 @@ Page({
     })
 ```
 
-按照```url```发起HTTP请求后端服务器，返回得到的数据```res```，在浏览器中的控制台的显示如下 :
+按照```url```发起HTTP请求后端服务器，返回得到的数据```res```，在浏览器中的控制台的显示如下，关于调试部分，参见小程序官方文档[console](https://developers.weixin.qq.com/miniprogram/dev/reference/api/console.html):
 
 ![](./assests/img/2.png)
+
+
+注意这里的
+
+```
+that.setData({
+  contents_name: res.data[0].contents_name
+})
+```
+
 
 setData 函数用于将数据从逻辑层发送到视图层，同时改变对应的 this.data 的值。
 
