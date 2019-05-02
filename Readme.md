@@ -136,7 +136,7 @@ Page页面说明：
 
 > 具体内容请参考微信小程序的官方文档。[小程序代码构成](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/code.html)
 
-#### 2.2.2 Course课程部分
+#### 2.2.2 course课程部分
 
 在```/pages/course/course.wxml```中，代码修改如下 :
 
@@ -187,7 +187,7 @@ Page页面说明：
 
 > lab是为了尽量简单，PJ是要多多注意细节的。
 
-#### 2.2.3 Contents目录部分
+#### 2.2.3 contents目录部分
 
 在```/pages/contents/content.js```中，代码修改如下 :
 
@@ -384,7 +384,7 @@ Page({
 
 在 ```pages/chatbox/chatbox.js```中， 修改代码如下 :
 
-```
+```javascript
 // pages/chatbox/chatbox.js
 Page({
 
@@ -491,6 +491,21 @@ Page({
     that.setData({
       index: i
     })    
+  }
+})
+```
+
+最终界面的演示效果
+
+![](./assests/img/demo.gif)
+
+#### 2.2.5  终端距离问题的解释
+
+微信小程序另一个方面还是类似与手机APP，将会有一些系统的函数来获取手机的相关属性。比如屏幕高度、相关属性等
+
+
+
+```javascript
     // 创建节点查询器 query
     var query = wx.createSelectorQuery()
     // 选择类名称为 messageHeight 的节点，获取节点位置信息的查询请求
@@ -514,22 +529,21 @@ Page({
       // duration: 300
     })
    })  
-
-  }
-})
 ```
 
-最终界面的演示效果
 
-![](./assests/img/demo.gif)
 
-#### 2.2.5  终端距离问题的解释
-[TODO]
+
 
 #### 2.2.6  对于 wx.request 的封装
-[TODO]
 
 在这个项目中，多处地方都用到了wx.request，这里考虑简单地封装起来，wx.request的简单封装
+
+
+
+
+
+
 
 
 ## 3. 课后作业
@@ -540,9 +554,8 @@ Page({
 
 **题目1:**
 
-- 任务1 : 点击“课程”按钮，进入课程的列表，这里的课程列表数据是以文本的形式写在```course.wxml```中，修改这里的部分，从后台取得数据在前台上显示。
 
-- 任务2 : 在这个项目中，多处地方都用到了wx.request，这里考虑简单地封装起来，wx.request的简单封装，完成这个封装的代码。
+- 任务 : 在这个项目中，多处地方都用到了wx.request，后面我将wx.request这里封装成Request.js，然后提供给chatboxApi.js对调用，请模仿chatboxApi.js写出contentsApi.js与courseApi.js，然后相关页面调用。
 
 最后的代码以“姓名+学号+miniprogram.zip”的文件压缩包压缩。
 
@@ -552,7 +565,7 @@ Page({
 
 **题目3:**
 
-同学们在 Web 应用基础课上学习的 jQuery 在 2012 年左右还是相当前沿的 JavaScript 库；而如今，jQuery 慢慢淡出舞台，Angular, React 和 Vue 是三个最流行的前端框架。传统的 JavaScript 库以 DOM 操作为核心，现在流行的 MVVM 前端框架以少操作 DOM 和以数据核心操作对象。谈谈前端这种编程方式衍变的好处来加深对于 MVVM 框架的理解？
+同学们在 Web 应用基础课上学习的 jQuery 在 2012 年左右还是相当前沿的 JavaScript 库；而如今，jQuery 慢慢淡出舞台，Angular, React 和 Vue 是三个最流行的前端框架。传统的 JavaScript 库以 DOM 操作为核心，现在流行的 MVVM 前端框架以少操作 DOM 和以数据为核心操作对象。谈谈前端这种编程方式衍变的好处来加深对于 MVVM 框架的理解？
 
 
 
