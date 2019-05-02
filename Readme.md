@@ -7,18 +7,20 @@
 
 在微信小程序官方网站上下载自己电脑对应操作系统版本的微信小程序开发者工具，在本地的电脑上安装。
 
-微信小程序的新建项目是需要 Appid 的，需要自己注册一个微信小程序的账号来获得 Appid。如果自己没有注册过微信小程序的账号，可以用助教账号的```"appid": "wx21776ebfd5bca378"```来完成实验。
+微信小程序的新建项目是需要 Appid 的，需要自己注册一个微信小程序的账号来获得 Appid。
+
+如果自己没有注册过微信小程序的账号，可以用助教账号的```"appid": "wx21776ebfd5bca378"```来完成实验。
 
 
 ### 1.2 轻量级后端
 
 最终的 PJ 是前后端分离的项目，小程序作为前端。lab3 是用 SpringBoot 作为Restful后端，这部分还没学习。所以，lab2 用轻量级的服务器，推荐用 json-server ，具体使用参考 Github 主页 : [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
 
-在本地电脑上安装  NodeJS 环境，具体安装过程参考 ```lab2-Angualr```部分的文档。
+在本地电脑上安装  NodeJS 环境，具体安装过程百度，如果遇到问题无法解决可以联系助教。
 
 ```ini
-# 在终端通过命令安装json-server包
-sudo npm install -g json-server
+# 在终端通过命令安装json-server包，如果因为权限问题失败了，用sudo npm install -g json-server
+npm install -g json-server
 # git clone 并进入文件夹
 git clone https://github.com/2019-web/mini-edu-lab-server-code.git
 cd mini-edu-lab-server-code
