@@ -48,7 +48,7 @@ json-server --watch --port 5300 db.json
 
 新建项目完成之后，进入的界面如下:
 
-![](./assests/img/newProject.png)
+![./assests/img/newProject.png](./assests/img/newProject.png)
 
 
 
@@ -88,11 +88,7 @@ Page页面说明：
 
 #### 2.2.1 index 首页
 
-在微信开发者工具中，按照新建项目，会得到如下的一些基础代码，如图所示 :
-
-![](./assests/img/3.png)
-
-将```index.wxml```部分的代码修改如下 :
+在```pages/index/index.wxml```中，代码修改如下 :
 
 ```html
 <!--index.wxml-->
@@ -135,11 +131,11 @@ Page页面说明：
 
 实际的界面如下 :
 
-![](./assests/img/4.png)
+![](./assests/img/index.png)
 
 #### 2.2.2 Course课程部分
 
-修改```course.wxml```的代码如下 :
+在```/pages/course/course.wxml```中，代码修改如下 :
 
 ```html
 <text>pages/course/course.wxml</text>
@@ -164,22 +160,33 @@ Page页面说明：
 </view>  
 ```
 
-修改```course.wxss```的代码如下 :
+在```/pages/course/course.wxss```中，代码修改如下:
 ```
 /* pages/course/course.wxss */
 .course {
+  /* 保持上下两个按钮的间距 */
   margin-top: 20px; 
 }
 ```
 
+在```/pages/course/course.json```中，代码修改如下:
 
-其它的文件course.json 、course.js保持默认即可。
+```
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "课程页面"
+}
+```
+
+```navigationBarTitleText```是进行导航栏标题文字内容的配置，具体参考官方文档。[页面配置](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)
+
+在```/pages/course/course.js```中，后面有开发的需要再添加，暂时保持默认。
 
 > lab是为了尽量简单，PJ是要多多注意细节的。
 
 #### 2.2.3 Contents目录部分
 
-修改```content.js```的代码如下 :
+在```/pages/contents/content.js```中，代码修改如下 :
 
 ```
 // pages/course/course.js
@@ -189,7 +196,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Catalog:[]
+    contents_name:[]
   },
 
   /**
@@ -275,7 +282,9 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        // 对于url的HTTP GET请求返回的res JSON类型的数据打印，在微信开发者工具的Console终端可以查看输出信息
         console.log(res);
+        // 从res数据中获得需要的课程名称数据
         that.setData({
           contents_name: res.data[0].contents_name
         })
@@ -291,7 +300,7 @@ setData 函数用于将数据从逻辑层发送到视图层，同时改变对应
 
 想要的这部分数据```res.data[0].contents_name```然后通过 ```setData``` 方法复制给 ```contents_name``` 变量，这个变量在 Page 的 Data 内部定义的。
 
-修改```content.wxml```的代码如下：
+在```/pages/content/content.wxml```中，代码修改如下：
 
 ```
 <!--pages/contents/contents.wxml-->
@@ -315,6 +324,8 @@ setData 函数用于将数据从逻辑层发送到视图层，同时改变对应
 ```
 
 说明在组件上使用 ```wx:for``` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。将```contents_name```数组中按照打印出来，item即为```contents_name```的别名。
+
+
 
 #### 2.2.4 chatbox聊天部分
 
