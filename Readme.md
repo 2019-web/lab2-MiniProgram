@@ -42,7 +42,7 @@ json-server --watch --port 5300 db.json
 
 在微信开发者工具中，新建项目，进入的界面如下:
 
-![./assests/img/6.png](./assests/img/requestUrl.png)
+![./assests/img/6.png](./assests/img/6.png)
 
 按照如上的界面配置。
 
