@@ -337,13 +337,13 @@ setData 函数用于将数据从逻辑层发送到视图层，同时改变对应
 </view>  
 ```
 
-说明在组件上使用 ```wx:for``` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。将```contents_name```数组中按照打印出来，item即为```contents_name```的别名。
+说明 : WXML 中的动态数据均来自对应 Page 的 data。在组件上使用 ```wx:for``` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。将```contents_name```数组中按照打印出来，item即为```contents_name```的别名。
 
-同时，在微信开发者工具中，在调试工具中有“AppData”，去查看实际的变量名称:
+同时，在微信开发者工具中，在调试工具中有“AppData”，去查看具体的变量数据:
 
 ![](./assests/img/AppData.png)
 
-在```/pages/content/content.js```中，与data内定义的变量是一一对应关系。微信小程序开发的本质是MVVM框架，只要修改Page中data内部定义的变量```contents_name```，```/pages/content/content.wxml```中```{{contents_name}}```的变量就能保持同步的更新。
+在```/pages/content/content.js```中，与data内定义的变量是一一对应关系。微信小程序开发的类似于 MVVM 框架，只要修改 Page 的 data 内部定义的变量```contents_name```，```/pages/content/content.wxml```中```{{contents_name}}```的变量就能保持同步的更新。
 
 ```
 Page({
