@@ -134,6 +134,8 @@ Page页面说明：
 
 ![](./assests/img/index.png)
 
+> 具体内容请参考微信小程序的官方文档。[小程序代码构成](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/code.html)
+
 #### 2.2.2 Course课程部分
 
 在```/pages/course/course.wxml```中，代码修改如下 :
@@ -356,7 +358,7 @@ Page({
   },
 ```
 
-
+> 这部分是小程序开发的重点部分，具体参考微信小程序官方的文档，[数据绑定](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/data.html)、[Page(Object object)](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html)。
 
 #### 2.2.4 chatbox聊天部分
 
