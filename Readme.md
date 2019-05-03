@@ -11,7 +11,7 @@
 
 如果自己没有注册过微信小程序的账号，可以用助教账号的```"appid": "wx21776ebfd5bca378"```来完成实验。
 
-关于微信开发者工具的使用，请参考微信小程序官方的文档 [概览](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
+关于微信开发者工具的使用，请参考微信小程序官方的文档:  [概览](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
 
 ### 1.2 轻量级后端
 
@@ -53,7 +53,7 @@ json-server --watch --port 5300 db.json
 
 
 
-小程序的目录结构请参考官方的文档，这里不再赘述。[目录结构](https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html)
+小程序的目录结构请参考微信小程序的官方文档：[目录结构](https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html)，后面的引用部分也是如此，不再赘述，要学会多去看微信小程序的官方文档。
 
 #### 2.1.1 注意
 
@@ -82,7 +82,7 @@ Page页面说明：
 
 - Chatbox聊天Page：一个知识点，按照对话式教学的，对话框界面
 
-> 流程说明
+> 流程说明：
 > 点击Course课程Page上的若干课程列表，点击其中的一门课程，进入Contents目录Page，显示的是对应的课程的知识点或者章节信息，点击其中的知识点或者章节信息，进入其中的知识点的Chatbox聊天Page。
 
 ### 2.2 具体代码说明
@@ -116,25 +116,23 @@ Page页面说明：
 
 主要增加的代码如下 :
 
-```
+```html
   <view style="margin-top:20px">
     <navigator
     url="../course/course"
-    hover-class="navigator-hover"
-    >
+    hover-class="navigator-hover">
     <button>进入课程</button>
     </navigator>
   </view>
 ```
 
-```<navigator></navigator>```可以实现当前小程序内的跳转链接，点击```<button></button>```按钮，可以实现跳转到 Course 文件夹内的Course页面。
-微信小程序中，可以用 hover-class 属性来指定元素的点击态效果。
+```<navigator></navigator>```可以实现当前小程序内的跳转链接，点击```<button></button>```按钮，可以实现跳转到 Course 文件夹内的Course页面。微信小程序中，可以用 ```hover-class``` 属性来指定元素的点击态效果。
 
 实际的界面如下 :
 
 ![](./assests/img/index.png)
 
-> 具体内容请参考微信小程序的官方文档。[小程序代码构成](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/code.html)
+具体内容请参考微信小程序的官方文档: [小程序代码构成](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/code.html)
 
 #### 2.2.2 course课程部分
 
@@ -147,16 +145,14 @@ Page页面说明：
   <view class="course">
     <navigator
     url="../contents/contents?content_id=network"
-    hover-class="navigator-hover"
-    >
+    hover-class="navigator-hover">
     <button>计算机网络</button>
     </navigator>
   </view>
   <view class="course">
     <navigator
     url="../contents/contents?content_id=datastructure"
-    hover-class="navigator-hover"
-    >
+    hover-class="navigator-hover">
     <button>数据结构</button>
     </navigator>
   </view>
@@ -164,7 +160,7 @@ Page页面说明：
 ```
 
 在```/pages/course/course.wxss```中，代码修改如下:
-```
+```json
 /* pages/course/course.wxss */
 .course {
   /* 保持上下两个按钮的间距 */
@@ -174,16 +170,22 @@ Page页面说明：
 
 在```/pages/course/course.json```中，代码修改如下:
 
-```
+```json
 {
   "usingComponents": {},
   "navigationBarTitleText": "课程页面"
 }
 ```
 
-```navigationBarTitleText```是进行导航栏标题文字内容的配置，具体参考官方文档。[页面配置](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)
+```navigationBarTitleText```是进行导航栏标题文字内容的配置，具体参考微信小程序的官方文档: [页面配置](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)
 
-在```/pages/course/course.js```中，后面有开发的需要再添加，暂时保持默认。
+在```/pages/course/course.js```中，暂时保持默认。
+
+
+后来又引入了 flex 布局，来做两列的课程显示，具体还是参考相关的文档吧，不再赘述了。
+
+请参考相关博客文章：[Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
 
 > lab是为了尽量简单，PJ是要多多注意细节的。
 
@@ -276,7 +278,7 @@ Page({
 })
 ```
 
-注意这里的
+在```/pages/contents/content.js```中，注意这里的：
 
 ```javascript
     wx.request({
@@ -295,12 +297,12 @@ Page({
     })
 ```
 
-按照```url```发起HTTP请求后端服务器，返回得到的数据```res```，在浏览器中的控制台的显示如下，关于调试部分，参见小程序官方文档[console](https://developers.weixin.qq.com/miniprogram/dev/reference/api/console.html):
+按照```url```发起HTTP请求后端服务器，返回得到的数据```res```，在浏览器中的控制台的显示如下，关于调试部分，参见微信小程序的官方文档：[console](https://developers.weixin.qq.com/miniprogram/dev/reference/api/console.html)
 
 ![](./assests/img/2.png)
 
 
-注意这里的
+在```/pages/contents/content.js```中，注意这里的：
 
 ```
 that.setData({
@@ -308,17 +310,14 @@ that.setData({
 })
 ```
 
-
-setData 函数用于将数据从逻辑层发送到视图层，同时改变对应的 this.data 的值。
+```setData``` 函数用于将数据从逻辑层发送到视图层，同时改变对应的 this.data 的值。
 
 想要的这部分数据```res.data[0].contents_name```然后通过 ```setData``` 方法复制给 ```contents_name``` 变量，这个变量在 Page 的 Data 内部定义的。
 
 
-
-
 在```/pages/content/content.wxml```中，代码修改如下：
 
-```
+```html
 <!--pages/contents/contents.wxml-->
 <text>pages/contents/contents.wxml</text>
 <view class="container">
@@ -329,8 +328,7 @@ setData 函数用于将数据从逻辑层发送到视图层，同时改变对应
     <view class="chatbox">
         <navigator
         url="../chatbox/chatbox?chatbox_id={{item.chatbox_id}}"
-        hover-class="navigator-hover"
-        >
+        hover-class="navigator-hover">
         <button>{{item.text}}</button>
         </navigator>
     </view>
@@ -339,7 +337,7 @@ setData 函数用于将数据从逻辑层发送到视图层，同时改变对应
 </view>  
 ```
 
-说明 : WXML 中的动态数据均来自对应 Page 的 data。在组件上使用 ```wx:for``` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。将```contents_name```数组中按照打印出来，item即为```contents_name```的别名。
+**说明 :** WXML 中的动态数据均来自对应 Page 的 data。在组件上使用 ```wx:for``` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。将```contents_name```数组中按照循环打印出来，```item```即为```contents_name```的默认变量名，默认数组的当前项的下标变量名默认为 `index`，数组当前项的变量名默认为 `item`，具体参考微信小程序官方的文档: [列表渲染](<https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/list.html>)
 
 同时，在微信开发者工具中，在调试工具中有“AppData”，去查看具体的变量数据:
 
@@ -358,29 +356,16 @@ Page({
   },
 ```
 
-> 这部分是小程序开发的重点部分，具体参考微信小程序官方的文档，[数据绑定](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/data.html)、[Page(Object object)](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html)。
+> 这部分是小程序开发的重点部分，具体参考微信小程序的官方文档: [数据绑定](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/data.html)、[Page(Object object)](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html)
 
 #### 2.2.4 chatbox聊天部分
 
-这个里面比较关键的就是 点击底部的“添加信息”按钮，然乎对话信息一条一条的显示出来，考虑到信息的增加界面自动滚动到底部。
 
-在```pages/chatbox/chatbox.wxml```中，修改代码如下 :
+##### (1) chatbox聊天
 
-```
-<!--pages/chatbox/chatbox.wxml-->
-<text>pages/chatbox/chatbox.wxml</text>
-<!-- padding-bottom:80px;限制文本内容区域距离底端大小，微信小程序中使用padding-bottom解决position:fixed遮挡正文内容的问题 -->
-<view id="container" style="padding-bottom:80px;">
-<view>
-    <view wx:for="{{message}}" class='messageHeight'>
-    {{item.uuid}}-{{item.text}}-{{item.image_url}}-{{item.type}}
-    </view>
-  </view>
-</view>  
-<view class="bottom" style="width:100%;height:80px;border-top:1px solid red;background-color:#f0f0f0;position:fixed; bottom:0;">
-  <button bindtap="addMessage" disable="true">增加信息</button>
-</view>
-```
+
+比较关键的就是点击底部的“添加信息”按钮，然乎对话信息一条一条的显示出来，这里的做法比较简陋，直接将整个信息通过``` setData``` 赋值给变量，可能以后要考虑到“单次设置的数据不能超过1024KB，尽量避免一次设置过多的数据”的问题。
+
 
 在 ```pages/chatbox/chatbox.js```中， 修改代码如下 :
 
@@ -495,58 +480,251 @@ Page({
 })
 ```
 
-最终界面的演示效果
+##### (2) 界面坐标问题
 
-![](./assests/img/demo.gif)
+在```pages/chatbox/chatbox.wxml```中，修改代码如下 :
 
-#### 2.2.5  终端距离问题的解释
+```html
+<!--pages/chatbox/chatbox.wxml-->
+<text>pages/chatbox/chatbox.wxml</text>
+<!-- padding-bottom:80px;限制文本内容区域距离底端大小，微信小程序中使用padding-bottom解决position:fixed遮挡正文内容的问题 -->
+<view id="container" style="padding-bottom:80px;">
+  <view>
+    <view wx:for="{{message}}" class='messageHeight'>
+    <!--{{item.uuid}}-{{item.text}}-{{item.image_url}}-{{item.type}}-->
+	  <block wx:if="{{item.type === 'teacher'}}">
+      <view class="chat teacher" >
+      <image src="{{item.image_url}}" class='user-photo'></image>
+    <text class='chat-message'>
+    {{item.text}}
+    </text>
+     </view>
+     </block>
+    <block wx:if="{{item.type === 'student'}}">
+      <view class="chat student" >
+      <image src="{{item.image_url}}" class='user-photo'></image>
+      <text class='chat-message'>
+    {{item.text}}
+    </text>
+     </view>
+     </block>
+    </view>
+  </view>
+</view>  
 
-[TODO]
+<view class="bottom" style="width:100%;height:80px;border-top:1px solid red;background-color:#f0f0f0;position:fixed; bottom:0;">
+  <button bindtap="addMessage" disable="true">增加信息</button>
+</view>
+```
 
+上面的代码中 ```id="container"```的```<view></view>```区域显示聊天信息区域。
 
+下面的代码要获取```id="container"```的```<view></view>```区域的相关属性值。
 
 ```javascript
-    // 创建节点查询器 query
     var query = wx.createSelectorQuery()
-    // 选择类名称为 messageHeight 的节点，获取节点位置信息的查询请求
-    query.select('.messageHeight').boundingClientRect()
-
+    query.select('#container').boundingClientRect()
     query.exec(function (res) {
-      //  res.id       节点的ID
-      //  res.dataset  节点的dataset
-      //  res.left     节点的左边界坐标
-      //  res.right    节点的右边界坐标
-      //  res.top      节点的上边界坐标
-      //  res.bottom   节点的下边界坐标
-      //  res.width    节点的宽度
-      //  res.height   节点的高度 
-      console.dir(res[0].height);
-      console.dir(res[0].bottom);
-      // 滑动页面请求
-      wx.pageScrollTo({
+    //  rect.id       节点的ID
+    //  rect.dataset  节点的dataset
+    //  rect.left     节点的左边界坐标
+    //  rect.right    节点的右边界坐标
+    //  rect.top      节点的上边界坐标
+    //  rect.bottom   节点的下边界坐标
+    //  rect.width    节点的宽度
+    //  rect.height   节点的高度 
+    //动态获取view元素的宽高
+    console.log(res);
+    console.log("节点的上边界坐标");
+    console.dir(res[0].top);
+    console.log("节点的下边界坐标"); 
+    console.dir(res[0].bottom);
+    console.log("节点的高度");
+    console.log(res[0].height);
+    console.log("节点的左边界坐标");
+    console.log(res[0].left);
+    console.log("节点的右边界坐标");
+    console.log(res[0].right);
+  
+    wx.pageScrollTo({
       // scrollTop	Number	是	滚动到页面的目标位置（单位px）
-      scrollTop: res[0].bottom+res[0].height,
+      scrollTop: res[0].height,
       // duration: 300
     })
-   })  
+  })  
+```
+
+这里相关的函数还是参考微信小程序官方的文档吧，不再赘述。
+
+
+
+在上面的代码中打印输出了```res```的值，对于``` res ```打印输出的值进行说明：
+
+![](./assests/img/scrollTo-2.png)
+
+![](./assests/img/scrollTo-1.png)
+
+![](./assests/img/scrollTo-3.png)
+
+在上面的三张图中，第一张图可以看到```console.log(res)```打印出res的变量值。第二张图可以看到```<text></text>```的区域大小是220.95x22，第三张图可以看到```<view id="container"></view>```的区域大小是320x150，因此可以得到```<view id="container"></view>``` 节点的上边界坐标是22，节点的下边界坐标是150+22=172。
+
+
+
+考虑一个问题，每次点击按钮"增加信息"后需要往view层中添加数据内容，在添加后需要将内容滚动到最下面一条，以便有更好的用户体验。 选择了使用wx.pageScrollTo接口，通过获取当前view层的高度来动态的调整pageScrollTo中的scrollTop值。
+
+![](./assests/img/scrollTo-4.png)
+
+>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+
+### 2.3  对于 wx.request 的封装
+
+考虑到之前我提的问题，对于```wx.request```封装的问题，对于HTTP请求进行封装，这个是通常的做法。
+
+在项目根目录下，新建文件夹```apis```，在其中新建```request.js```文件，封装具体的类```request```，具体的代码如下:
+
+```javascript
+class request {
+  constructor() {
+    this._header = {}
+  }
+
+  /**
+   * 设置统一的异常处理
+   */
+  setErrorHandler(handler) {
+    this._errorHandler = handler;
+  }
+
+  /**
+   * GET类型的网络请求
+   */
+  getRequest(url, data, header = this._header) {
+    return this.requestAll(url, data, header, 'GET')
+  }
+
+  /**
+   * DELETE类型的网络请求
+   */
+  deleteRequest(url, data, header = this._header) {
+    return this.requestAll(url, data, header, 'DELETE')
+  }
+
+  /**
+   * PUT类型的网络请求
+   */
+  putRequest(url, data, header = this._header) {
+    return this.requestAll(url, data, header, 'PUT')
+  }
+
+  /**
+   * POST类型的网络请求
+   */
+  postRequest(url, data, header = this._header) {
+    return this.requestAll(url, data, header, 'POST')
+  }
+
+  /**
+   * 网络请求
+   */
+  requestAll(url, data, header, method) {
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: url,
+        data: data,
+        header: header,
+        method: method,
+        success: (res => {
+          if (res.statusCode === 200) {
+          	//200: 服务端业务处理正常结束
+            resolve(res)
+          } else {
+          	//其它错误，提示用户错误信息
+            if (this._errorHandler != null) {
+            //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
+              this._errorHandler(res)
+            }
+            reject(res)
+          }
+        }),
+        fail: (res => {
+          if (this._errorHandler != null) {
+            this._errorHandler(res)
+          }
+          reject(res)
+        })
+      })
+    })
+  }
+}
+
+export default request
+
+```
+
+在上面的代码中，难理解的部分是```Promise```代码，这是ECMAScript 6新的语法，提供异步操作，具体的内容请参考阮一峰的文档：[Promise 对象](<http://javascript.ruanyifeng.com/advanced/promise.html>)
+
+同样地，在```apis```文件夹下新建文件```chatboxApi.js```，具体代码如下:
+
+```
+import request from './request.js'
+
+class chatboxApi {
+  constructor() {
+    const app = getApp();
+    console.log(app);
+    this._baseUrl = 'http://localhost:5300';
+    this._defaultHeader = { 'data-tupe': 'application/json' }
+    this._request = new request
+    this._request.setErrorHandler(this.errorHander)
+  }
+
+  /**
+   * 统一的异常处理方法
+   */
+  errorHander(res) {
+    console.error(res)
+  }
+
+  /**
+   * 获取所有信息
+   */
+  getMessage(chatbox_id, key = null) {
+    let data = key != null ? { chatbox_id:chatbox_id, queryValue: key } : { chatbox_id:chatbox_id }
+    return this._request.getRequest(this._baseUrl + '/chatbox', data).then(res => res.data)
+  }
+
+  /**
+   * HTTP 请求中的 PUT 、DELETE、POST等网络类型等等函数
+  */
+}
+export default chatboxApi
 ```
 
 
 
+## 3. 说明
 
-
-#### 2.2.6  对于 wx.request 的封装
-
-[TODO]
-
+前面的叙述，主要是搭建起一个新的项目，介绍了原生开发微信小程序。这个lab2-MiniProgram是帮助大家向最终的PJ靠近的，由于lab篇幅有限，只是起到一点点帮助作用，有更多的内容是需要大家去探索学习。
 
 
 
+目前开发微信小程序时，可选的技术方案大概有四种，分别是 ：
+
+1. 微信小程序原生开发
+2. 使用wepy框架
+3. 使用mpvue框架
+4. 使用taro框架
+
+四种开发方案，各有优劣。使用第三方框架开发，可以享受框架带来的开发便利，但对于底层的小程序的功能未必能得到很好的应用。而原生小程序的开发模式，又过于简陋，但对于理解功能很有帮助。
+
+
+
+最终的PJ项目，我还是建议用第三方框架去开发微信小程序，考虑到整个课程在学习 MVVM 框架，在这里可以应用上，方便考核。
 
 
 
 
-## 3. 课后作业
+## 4. 课后作业
 
 截止时间：2018-5-12 23:59:59
 
@@ -555,9 +733,9 @@ Page({
 **题目1:**
 
 
-- 任务 : 在这个项目中，多处地方都用到了wx.request，后面我将wx.request这里封装成Request.js，然后提供给chatboxApi.js对调用，请模仿chatboxApi.js写出contentsApi.js与courseApi.js，然后相关页面调用。
+- 任务 : 在这个项目中，多处地方都用到了wx.request，后面我将wx.request这里封装成Request.js，然后提供给chatboxApi.js来调用，请模仿chatboxApi.js写出contentsApi.js与courseApi.js，然后相关页面调用和修改。
 
-最后的代码以“姓名+学号+miniprogram.zip”的文件压缩包压缩。
+最后的代码压缩成“姓名+学号+miniprogram.zip”的文件压缩包。
 
 **题目2:**
 
