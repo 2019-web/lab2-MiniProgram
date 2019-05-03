@@ -730,20 +730,14 @@ export default chatboxApi
 
 提交方式：将文档和压缩包提交到超星指定的lab作业栏里
 
-**题目1:**
+**题目:**
 
 
 - 任务 : 在这个项目中，多处地方都用到了wx.request，后面我将wx.request这里封装成Request.js，然后提供给chatboxApi.js来调用，请模仿chatboxApi.js写出contentsApi.js与courseApi.js，然后相关页面调用和修改。
 
 最后的代码压缩成“姓名+学号+miniprogram.zip”的文件压缩包。
 
-**题目2:**
-
-在最终的 PJ 中，MyBaitis 或者 Hibernate 都可以称之为 ORM 框架， Spring MVC 可以实现 MVC 框架，Angular 、Vue 是 MVVM 框架，前后端分离的 Restful API 是简单的微服务架构。请试着解释 ORM、MVC、MVVM、微服务架构 之间的概念，并分析一些优缺点。
-
-**题目3:**
-
-同学们在 Web 应用基础课上学习的 jQuery 在 2012 年左右还是相当前沿的 JavaScript 库；而如今，jQuery 慢慢淡出舞台，Angular, React 和 Vue 是三个最流行的前端框架。传统的 JavaScript 库以 DOM 操作为核心，现在流行的 MVVM 前端框架以少操作 DOM 和以数据为核心操作对象。谈谈前端这种编程方式衍变的好处来加深对于 MVVM 框架的理解？
+```题目2```和```题目3```取消，本次Lab后一周内，进行第一阶段PJ的基本检查，作为本次Lab检查，请各位同学相互通知一下！
 
 
 
